@@ -1,10 +1,8 @@
-const axios = require("axios");
+const TodoController = require("../controllers/TodoController");
 
 describe("Todos", () => {
   test("Get all todos", async () => {
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/todos",
-    );
+    const response = await TodoController.getTodos();
 
     expect(response.status).toBe(200);
     expect(response.data).toHaveLength(200);
@@ -12,9 +10,7 @@ describe("Todos", () => {
 
   test("Get single todo", async () => {
     const todoId = 1;
-    const response = await axios.get(
-      `https://jsonplaceholder.typicode.com/todos/${todoId}`,
-    );
+    const response = await TodoController.getTodo(todoId);
 
     expect(response.status).toBe(200);
     expect(response.data.id).toBe(todoId);
@@ -25,14 +21,11 @@ describe("Todos", () => {
     const completed = false;
     const userId = 1;
 
-    const response = await axios.post(
-      "https://jsonplaceholder.typicode.com/todos",
-      {
-        userId,
-        title,
-        completed,
-      },
-    );
+    const response = await TodoController.createTodo({
+      title,
+      userId,
+      completed,
+    });
 
     expect(response.status).toBe(201);
     expect(response.data.title).toBe(title);
@@ -44,13 +37,7 @@ describe("Todos", () => {
     const title = "NEW TEST TITLE";
     const completed = true;
 
-    const response = await axios.put(
-      "https://jsonplaceholder.typicode.com/todos/11",
-      {
-        title,
-        completed,
-      },
-    );
+    const response = await TodoController.updateTodo(11, { title, completed });
 
     expect(response.status).toBe(200);
     expect(response.data.title).toBe(title);
@@ -58,9 +45,7 @@ describe("Todos", () => {
   });
 
   test("Delete todo", async () => {
-    const response = await axios.delete(
-      "https://jsonplaceholder.typicode.com/todos/11",
-    );
+    const response = await TodoController.deleteTodo(11);
     expect(response.status).toBe(200);
   });
 });
