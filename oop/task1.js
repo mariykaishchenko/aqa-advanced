@@ -15,21 +15,21 @@ ebook1.printInfo();
 book1.title = "Updated Book A";
 
 try {
-    book1.title = "";
+  book1.title = "";
 } catch (error) {
-    console.log(`Setting empty string failed with error ${error}`);
+  console.log(`Setting empty string failed with error ${error}`);
 }
 
 try {
-    book1.title = 123;
+  book1.title = 123;
 } catch (error) {
-    console.log(`Setting number failed with error ${error}`);
+  console.log(`Setting number failed with error ${error}`);
 }
 
 try {
-    book1.author = 123;
+  book1.author = 123;
 } catch (error) {
-    console.log(`Setting number failed with error ${error}`);
+  console.log(`Setting number failed with error ${error}`);
 }
 
 const oldest = Book.findOldestBook([book1, book2, book3, ebook1]);

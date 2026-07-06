@@ -1,8 +1,8 @@
-let name = 'Alex';
+let name = "Alex";
 let age = 33;
 let isMarried = true;
 let child = null;
-let childAge; //underfined 
+let childAge = undefined; //underfined
 
 console.log(name);
 console.log(age);

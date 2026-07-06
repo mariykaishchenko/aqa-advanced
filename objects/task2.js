@@ -1,7 +1,7 @@
 const book = {
-    title: "My book",
-    author: "Author",
-    year: 2000
+  title: "My book",
+  author: "Author",
+  year: 2000,
 };
 
 const { author, title } = book;
