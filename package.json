@@ -15,9 +15,26 @@
   "author": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "eslint": "npx eslint .",
+    "eslint:fix": "npx eslint . --fix",
+    "prettier:fix": "npx prettier . --write",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,json,md}": [
+      "npx eslint",
+      "npx prettier --write"
+    ]
   },
   "dependencies": {
     "chalk": "^5.6.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.6.0",
+    "globals": "^17.7.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "prettier": "^3.9.4"
   }
 }
